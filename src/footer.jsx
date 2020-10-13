@@ -1,6 +1,6 @@
 
-import React from 'react'
-import ReactDOM from 'react-dom'
+// import React from 'react'
+// import ReactDOM from 'react-dom'
 
 
 //let footerItemsResult = [];//[{ "__metadata": { "id": "cdb6e170 - f38d - 48b7 - bf1d - 67e57f105147", "uri": "http://srvsp16/_api/Web/Lists(guid'e7081327-e380-400a-9f23-28b325500546')/Items(1)", "etag": "\"1\"", "type": "SP.Data.LinksFooterListItem" }, "Title": "GP", "RMNGP_LinkFooterContent": "<a>Grand Palais</a>", "RMNGP_LinkFooterColonne": "Institutions", "RMNGP_LinkFooterPosCol": "1" }, { "__metadata": { "id": "b156b7e0-ca22-42f8-98a8-8fc2fca6b097", "uri": "http://srvsp16/_api/Web/Lists(guid'e7081327-e380-400a-9f23-28b325500546')/Items(2)", "etag": "\"1\"", "type": "SP.Data.LinksFooterListItem" }, "Title": "RMNGP", "RMNGP_LinkFooterContent": "<a>RMNGP</a>", "RMNGP_LinkFooterColonne": "Institutions", "RMNGP_LinkFooterPosCol": "2" }, { "__metadata": { "id": "1ea37ee8-727d-4ee1-92d9-8d349182bf1d", "uri": "http://srvsp16/_api/Web/Lists(guid'e7081327-e380-400a-9f23-28b325500546')/Items(3)", "etag": "\"1\"", "type": "SP.Data.LinksFooterListItem" }, "Title": "Billetterie", "RMNGP_LinkFooterContent": "<a>Billetterie</a>", "RMNGP_LinkFooterColonne": "Institutions", "RMNGP_LinkFooterPosCol": "3" }, { "__metadata": { "id": "dc2f5974-d872-4a46-8399-760b1053ee40", "uri": "http://srvsp16/_api/Web/Lists(guid'e7081327-e380-400a-9f23-28b325500546')/Items(4)", "etag": "\"1\"", "type": "SP.Data.LinksFooterListItem" }, "Title": "Cours histoire d'art", "RMNGP_LinkFooterContent": "<a>Cours histoire d'art</a>", "RMNGP_LinkFooterColonne": "éducation", "RMNGP_LinkFooterPosCol": "1" }, { "__metadata": { "id": "77defb64-2f6f-4cd5-a7ca-41f33ac9c591", "uri": "http://srvsp16/_api/Web/Lists(guid'e7081327-e380-400a-9f23-28b325500546')/Items(5)", "etag": "\"1\"", "type": "SP.Data.LinksFooterListItem" }, "Title": "Panorama de l'art", "RMNGP_LinkFooterContent": "<a>Panorama de l'art</a>", "RMNGP_LinkFooterColonne": "éducation", "RMNGP_LinkFooterPosCol": "2" }, { "__metadata": { "id": "508817f5-cfe8-46b6-a7a9-35eb1d32a9f6", "uri": "http://srvsp16/_api/Web/Lists(guid'e7081327-e380-400a-9f23-28b325500546')/Items(6)", "etag": "\"1\"", "type": "SP.Data.LinksFooterListItem" }, "Title": "Boutique en ligne", "RMNGP_LinkFooterContent": "<a>boutique en ligne</a>", "RMNGP_LinkFooterColonne": "sites commerciaux", "RMNGP_LinkFooterPosCol": "1" }, { "__metadata": { "id": "e8a0e349-2f0c-4027-b769-6d48efc49cf0", "uri": "http://srvsp16/_api/Web/Lists(guid'e7081327-e380-400a-9f23-28b325500546')/Items(7)", "etag": "\"1\"", "type": "SP.Data.LinksFooterListItem" }, "Title": "Agence photographique", "RMNGP_LinkFooterContent": "<a>Agence photographique</a>", "RMNGP_LinkFooterColonne": "sites commerciaux", "RMNGP_LinkFooterPosCol": "2" }];
@@ -18,8 +18,10 @@ class FooterApp extends React.Component {
     }
     componentDidMount() {
 
+
         let headers = {
             method: 'GET',
+            credentials: 'include',
             headers: {
                 Accept: "application/json;odata=verbose"
             },
@@ -29,6 +31,8 @@ class FooterApp extends React.Component {
 
         let siteURL = _spPageContextInfo.siteAbsoluteUrl;
         let apiPath = siteURL + "/_api/web/lists/getbytitle('linksfooter')/items?$select=Title,RMNGP_LinkFooterColonne,RMNGP_LinkFooterContent,RMNGP_LinkFooterPosCol";
+
+
 
         fetch(apiPath, headers)
             .then(
@@ -76,7 +80,7 @@ class FooterApp extends React.Component {
             return (
                 <div className="footer_top">
                     <div className="footer_category">
-
+                        Chargement ...
                     </div>
                 </div>
             )

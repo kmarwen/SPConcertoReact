@@ -1,18 +1,31 @@
 module.exports = {
+    mode: "development",
+    watch: false,
     entry: {
         footer: './src/footer.jsx',
         concerto: './src/concerto.jsx',
         concertoHomeApp: './src/concertoHomeApp.jsx'
     },
-    watch: false,
     output: {
         path: __dirname + '/dist',
         filename: '[name].js'
     },
     optimization: {
-        minimize: false
+        minimize: false,
+        runtimeChunk: {
+            name: 'single-webpack'
+        }
+        // ,
+        // splitChunks: {
+        //     cacheGroups: {
+        //         vendor: {
+        //             test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
+        //             name: 'vendor',
+        //             chunks: 'all',
+        //         }
+        //     }
+        // }
     },
-    mode: "production",
     module: {
         rules: [
             {

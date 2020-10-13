@@ -1,6 +1,5 @@
 
-import React from 'react'
-import ReactDOM from 'react-dom'
+// import React from 'react'
 
 
 export default class ActuTopApp extends React.Component {
@@ -36,6 +35,7 @@ export default class ActuTopApp extends React.Component {
         var postQuery = {
             /* static part of the query*/
             method: 'POST',
+            credentials: 'include',
             url: "/_api/search/postquery",
             headers: {
                 "Accept": "application/json",
@@ -61,6 +61,7 @@ export default class ActuTopApp extends React.Component {
                     // console.log('actuTopItemsResult = ', actuTopItemsResult)
                     this.setState({
                         actuTopItems: actuTopItemsResult,
+                        isLoaded: true
                     });
                 },
                 // Note: it's important to handle errors here
@@ -94,26 +95,31 @@ export default class ActuTopApp extends React.Component {
             let cell = actuItem.Cells.find(actu => actu.Key === key)
             if (cell) return cell.Value;
         }
-        return (
-            <div className="actuTopApp">
-                <div className="containerItem actuTopContainer">
-                    {this.state.actuTopItems.map(topActu =>
-                        <ActuTop
-                            key={getValueByKey(topActu, "UniqueId")}
-                            titre={getValueByKey(topActu, "Title")}
-                            soustitre={getValueByKey(topActu, "RMNGPActuSousTitreOWSMTXT")}
-                            path={getValueByKey(topActu, "Path")}
-                            publishingImage={getValueByKey(topActu, "PublishingImage")}
-                            publishingRollupImage={getValueByKey(topActu, "PublishingRollupImage")}
-                            legende={getValueByKey(topActu, "PublishingImageCaptionOWSHTML")}
-                        />
-                    )}
+        if (this.state.isLoaded) {
+            return (
+                <div className="actuTopApp">
+                    <div className="containerItem actuTopContainer">
+                        {this.state.actuTopItems.map(topActu =>
+                            <ActuTop
+                                key={getValueByKey(topActu, "UniqueId")}
+                                titre={getValueByKey(topActu, "Title")}
+                                soustitre={getValueByKey(topActu, "RMNGPActuSousTitreOWSMTXT")}
+                                path={getValueByKey(topActu, "Path")}
+                                publishingImage={getValueByKey(topActu, "PublishingImage")}
+                                publishingRollupImage={getValueByKey(topActu, "PublishingRollupImage")}
+                                legende={getValueByKey(topActu, "PublishingImageCaptionOWSHTML")}
+                            />
+                        )}
+                    </div>
+                    <div className="seeMoreActus">
+                        <button onClick={this.handleRedirectToAllActu.bind(this)}>Plus d'actualités</button>
+                    </div>
                 </div>
-                <div className="seeMoreActus">
-                    <button onClick={this.handleRedirectToAllActu.bind(this)}>Plus d'actualités</button>
-                </div>
-            </div>
-        )
+            )
+        }
+        else {
+            return <div className="">chargement des actualités</div>
+        }
     }
 }
 

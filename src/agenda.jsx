@@ -1,4 +1,4 @@
-import React from 'react'
+// import React from 'react'
 
 import CustomUserSearch from './customUserSearch.jsx'
 
@@ -18,6 +18,7 @@ export default class AgendaApp extends React.Component {
         //console.log("api path ==> " + apiPath);
         let headers = {
             method: 'GET',
+            credentials: 'include',
             headers: {
                 Accept: "application/json;odata=verbose"
             },
@@ -69,12 +70,9 @@ export default class AgendaApp extends React.Component {
             )
         } else {
             return (
-
                 <div className="agendaApp agendaZone containerItem">
                     <ul className="agenda">
-                        <li className="rdv">rdv1</li>
-                        <li className="rdv">rdv2</li>
-                        <li className="rdv">rdv3</li>
+                        <li className="rdv">chargement des rdv</li>
                     </ul>
                 </div>
             )

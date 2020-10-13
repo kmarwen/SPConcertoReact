@@ -1,6 +1,5 @@
 
-import React from 'react'
-import ReactDOM from 'react-dom'
+// import React from 'react'
 
 
 export default class AppsMetierTopApp extends React.Component {
@@ -10,11 +9,12 @@ export default class AppsMetierTopApp extends React.Component {
     }
     componentDidMount() {
         let siteURL = _spPageContextInfo.siteAbsoluteUrl;
-        let apiPath = siteURL + "/_api/web/lists/getbytitle('AppsMetier')/items?$select=Title,RMNGP_AppUrl,RMNGP_AppIco,RMNGP_AppOrder&$OrderBy=RMNGP_AppOrder&$Top=3";
+        let apiPath = siteURL + "/_api/web/lists/getbytitle('AppsMetier')/items?$select=Title,RMNGP_AppUrl,RMNGP_AppIco,RMNGP_AppOrder&$OrderBy=RMNGP_AppOrder"; //&$Top=3
 
         //console.log("api path ==> " + apiPath);
         let headers = {
             method: 'GET',
+            credentials: 'include',
             headers: {
                 Accept: "application/json;odata=verbose"
             },
@@ -64,9 +64,7 @@ export default class AppsMetierTopApp extends React.Component {
             return (
                 <div className="appMetierApp containerItem">
                     <ul className="cbs-List">
-                        <li className="app_top">app1</li>
-                        <li className="app_top">app2</li>
-                        <li className="app_top">app3</li>
+                        <li className="app_top">Chargement des app</li>
                     </ul>
                 </div>
             )

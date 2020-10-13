@@ -8,9 +8,23 @@
 
     SP.SOD.executeFunc('sp.js', 'SP.ClientContext', () => {
 
-        let login = document.querySelector('#O365_TopMenu > div > span > div:nth-child(6)')
+        var inDesignMode = document.forms[MSOWebPartPageFormName].MSOLayout_InDesignMode.value;
+        if (inDesignMode == "1") {
+            console.log('page is in edit mode')
+            //suppression de l'icone user
+            document.getElementById('divWelcomeLogin2').style.display = 'none'
+        }
+        else {
+            console.log('page is in browse mode')
+            let userdiv = document.querySelector('#O365_TopMenu > div > span > div:nth-child(6)')
+            // déplacement de la div user welcome
+            let login = document.querySelector('span.login')
+            login.appendChild(userdiv)
 
-        document.querySelector('span.login').appendChild(login)
+            //correction padding left
+            document.querySelector('.ms-pub-logon span.login .o365cs-me-tile-nophoto-username-container > .o365cs-me-tile-nophoto-username').style.paddingLeft = '0px !important'
+
+        }
         /*
                 let headers = {
                         method: 'GET',
@@ -36,6 +50,6 @@
                                 // document.getElementById("divWelcomeLogin2").style.display = 'flex';
                             }
                         });
-                        */
+            */
     });
 })()
