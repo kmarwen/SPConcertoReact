@@ -27,7 +27,3 @@ _______________
 
 ```npm run prod```
 _______________
-
-## A venir
-
-Tout _**pleiiiiiiiiiiiiiiiiiiiiiiiiiins**_ de fonctionnalités qui arriveront d'ici peu! Les conversations privées, les smileys, la possibilité de gérer son statut,... 
