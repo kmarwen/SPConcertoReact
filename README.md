@@ -1,6 +1,8 @@
 # Bienvenue sur SPConcertoReact
 
-contient les fichier jsx
+ce projet contient les sources jsx de l'application concerto à destination d'un site de publication Sharepoint 2016
+
+
 + une config webpack 5 
 
 
