@@ -5,5 +5,5 @@ contient les fichier jsx
 
 pour générer : 
 + npm run dev
-pour générer final pour sharepoint 
+- pour générer final pour sharepoint 
 + npm run prod
