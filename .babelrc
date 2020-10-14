@@ -7,7 +7,7 @@
                 "useBuiltIns": false,
                 "targets": {
                     "chrome": "60",
-                    "ie": "14"
+                    "ie": "11"
                 }
             }
         ],
