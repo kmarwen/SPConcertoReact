@@ -18,11 +18,11 @@
             console.log('page is in browse mode')
             let userdiv = document.querySelector('#O365_TopMenu > div > span > div:nth-child(6)')
             // déplacement de la div user welcome
-            let login = document.querySelector('span.login')
-            login.appendChild(userdiv)
+            let loginSpan = document.querySelector('#divWelcomeLogin2 > span.login')
+            loginSpan.appendChild(userdiv)
 
             //correction padding left
-            document.querySelector('.ms-pub-logon span.login .o365cs-me-tile-nophoto-username-container > .o365cs-me-tile-nophoto-username').style.paddingLeft = '0px !important'
+            document.querySelector('.o365cs-me-tile-nophoto-username-container > .o365cs-me-tile-nophoto-username').style.paddingLeft = '0'
 
         }
         /*

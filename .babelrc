@@ -4,9 +4,9 @@
             "@babel/preset-env",
             {
                 "debug": true,
-                "useBuiltIns": false,
+                // "useBuiltIns": false,
                 "targets": {
-                    "chrome": "60",
+                    // "chrome": "60",
                     "ie": "11"
                 }
             }
