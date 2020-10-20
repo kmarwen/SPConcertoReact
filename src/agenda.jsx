@@ -56,7 +56,7 @@ export default class AgendaApp extends React.Component {
     render() {
         if (this.state.isLoaded) {
             return (
-                <div className="containerItem">
+                <div className="containerItem agendaContainer">
 
                     <CustomUserSearch />
 
