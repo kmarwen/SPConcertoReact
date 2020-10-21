@@ -1,4 +1,15 @@
+import CustomSiteSearch from './customSiteSearch.jsx'
+import FooterApp from './footer.jsx'
+
+const domFooterContainer = document.getElementById('footerApp');
+ReactDOM.render(<FooterApp title={'React Footer'} />, domFooterContainer);
+
+const domCustomSiteSearchContainer = document.getElementById('siteSearchBox');
+ReactDOM.render(<CustomSiteSearch title={'React Custom Site Search'} />, domCustomSiteSearchContainer);
+    
 (() => {
+
+    
 
     // document.getElementById("divWelcomeLogin2").style.display = 'none';
     // debugger

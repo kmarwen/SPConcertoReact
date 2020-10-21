@@ -4,7 +4,7 @@ const path = require('path');
 
 module.exports = {
     entry: {
-        footer: './src/footer.jsx',
+        // footer: './src/footer.jsx',
         concerto: './src/concerto.jsx',
         concertoHomeApp: './src/concertoHomeApp.jsx'
     },

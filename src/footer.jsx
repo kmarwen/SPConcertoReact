@@ -11,7 +11,7 @@
 
 // categories = ['Institutions', 'éducation', 'sites commerciaux'];
 
-class FooterApp extends React.Component {
+export default class FooterApp extends React.Component {
     constructor(props) {
         super(props);
         this.state = { isLoaded: false, footerItems: [], categories: [] };
@@ -119,6 +119,3 @@ class LinkFooter extends React.Component {
         );
     }
 }
-
-const domContainer = document.getElementById('footerApp');
-ReactDOM.render(<FooterApp title={'React Footer'} />, domContainer);
