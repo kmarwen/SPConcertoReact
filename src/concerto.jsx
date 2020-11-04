@@ -39,21 +39,24 @@ ReactDOM.render(<CustomSiteSearch title={'React Custom Site Search'} />, domCust
 
         // correction du clic des liens
         document.querySelectorAll('.ms-core-listMenu-horizontalBox li.static > a.dynamic-children')
-		.forEach(aElement => {					
-					const eLis = getEventListeners(aElement);
-					//console.log(eLis);
-					if (Object.keys(eLis).length !== 0) 
-					{
-						aElement.addEventListener('click', function(e){
-							e.preventDefault(); 
-						});						
-					}
+            .forEach(aElement => {		
+                aElement.addEventListener('click', function(e){
+                    e.preventDefault(); 
+                });		
+                    // const eLis = getEventListeners(aElement);
+                    
+                    // 		//console.log(eLis);
+                    // 		if (Object.keys(eLis).length !== 0) 
+                    // 		{
+                        
+                    // 		}
 
-					const eve = getEventListeners(aElement); 
-					if (Object.keys(eve).length !== 0) 
-					{   
-						console.log(eve);
-					}
+                    // only in console
+					// const eve = getEventListeners(aElement); 
+					// if (Object.keys(eve).length !== 0) 
+					// {   
+					// 	console.log(eve);
+					// }
             })
 
         /*
