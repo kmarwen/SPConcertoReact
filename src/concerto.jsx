@@ -19,14 +19,15 @@ ReactDOM.render(<CustomSiteSearch title={'React Custom Site Search'} />, domCust
 
     SP.SOD.executeFunc('sp.js', 'SP.ClientContext', () => {
 
+        // correction cssen fonction de la page
         var inDesignMode = document.forms[MSOWebPartPageFormName].MSOLayout_InDesignMode.value;
         if (inDesignMode == "1") {
-            console.log('page is in edit mode')
+            //console.log('page is in edit mode')
             //suppression de l'icone user
             document.getElementById('divWelcomeLogin2').style.display = 'none'
         }
         else {
-            console.log('page is in browse mode')
+            //console.log('page is in browse mode')
             let userdiv = document.querySelector('#O365_TopMenu > div > span > div:nth-child(6)')
             // déplacement de la div user welcome
             let loginSpan = document.querySelector('#divWelcomeLogin2 > span.login')
@@ -34,8 +35,27 @@ ReactDOM.render(<CustomSiteSearch title={'React Custom Site Search'} />, domCust
 
             //correction padding left
             document.querySelector('.o365cs-me-tile-nophoto-username-container > .o365cs-me-tile-nophoto-username').style.paddingLeft = '0'
-
         }
+
+        // correction du clic des liens
+        document.querySelectorAll('.ms-core-listMenu-horizontalBox li.static > a.dynamic-children')
+		.forEach(aElement => {					
+					const eLis = getEventListeners(aElement);
+					//console.log(eLis);
+					if (Object.keys(eLis).length !== 0) 
+					{
+						aElement.addEventListener('click', function(e){
+							e.preventDefault(); 
+						});						
+					}
+
+					const eve = getEventListeners(aElement); 
+					if (Object.keys(eve).length !== 0) 
+					{   
+						console.log(eve);
+					}
+            })
+
         /*
                 let headers = {
                         method: 'GET',
